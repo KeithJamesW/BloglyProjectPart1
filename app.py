@@ -29,14 +29,14 @@ def users_index():
     
 
     users = User.query.order_by(User.last_name, User.first_name).all()
-    return render_template('users/index.html', users=users)
+    return render_template('index.html', users=users)
 
 
 @app.route('/users/new', methods=["GET"])
 def users_new_form():
     
 
-    return render_template('users/new.html')
+    return render_template('new.html')
 
 @app.route("/users/new", methods=["POST"])
 def users_new():
@@ -57,7 +57,7 @@ def users_show(user_id):
     
 
     user = User.query.get_or_404(user_id)
-    return render_template('users/show.html', user=user)
+    return render_template('show.html', user=user)
 
 
 @app.route('/users/<int:user_id>/edit')
@@ -65,7 +65,7 @@ def users_edit(user_id):
     
 
     user = User.query.get_or_404(user_id)
-    return render_template('users/edit.html', user=user)
+    return render_template('edit.html', user=user)
 
 
 @app.route('/users/<int:user_id>/edit', methods=["POST"])
